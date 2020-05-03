@@ -361,7 +361,6 @@ def loadingAn(name="cal"):
 
 def textAn(TEXT, ty='d'):
      #1.py
-import time
 import progressbar
 from time import sleep
 bar = progressbar.ProgressBar(maxval=300, \
