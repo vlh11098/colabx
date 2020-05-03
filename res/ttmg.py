@@ -361,12 +361,10 @@ def loadingAn(name="cal"):
 
 def textAn(TEXT, ty='d'):
      #1.py
-import progressbar
-from time import sleep
-bar = progressbar.ProgressBar(maxval=300, \
+    bar = progressbar.ProgressBar(maxval=300, \
     widgets=[progressbar.Bar('=', '[', ']'), ' ', progressbar.Percentage()])
-bar.start()
-for i in range(300):
+    bar.start()
+    for i in range(300):
     bar.update(i+1)
     sleep(1)
 bar.finish()
