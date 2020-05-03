@@ -364,20 +364,7 @@ def textAn(ty='d'):
 
 
       if ty == 'd':
-            return (
-            from time import sleep
-import sys
-            n_bar = 50
-iterable = range(10)  # for demo purposes
-n_iter = len(iterable)
-for i, item in enumerate(iterable):
-    j = (i + 1) / n_iter
-
-    sys.stdout.write('\r')
-    sys.stdout.write(f"[{'=' * int(n_bar * j):{n_bar}s}] {int(100 * j)}%")
-    sys.stdout.flush()
-
-    sleep(1)  )
+            return static format_time(timestamp, precision=datetime.timedelta(seconds=1)) 
     
 def updateCheck(self, Version):
     class UpdateChecker(object):
