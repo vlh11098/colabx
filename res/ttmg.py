@@ -365,7 +365,7 @@ def textAn(ty='d'):
       from IPython.display import HTML
 
       if ty == 'd':
-            return display(Tao lao)
+            return print('dang chay')
     
 def updateCheck(self, Version):
     class UpdateChecker(object):
