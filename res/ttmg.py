@@ -366,7 +366,7 @@ def textAn(TEXT, ty='d'):
 
       if ty == 'd':
             return display(
-            Helo...!
+            print('Helo...!')
             )
       elif ty == 'twg':
             textcover = str(len(TEXT)*0.55)
