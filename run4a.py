@@ -1,1 +1,1 @@
-echo 'sudo apt-get install actiona'
+runSh("sudo apt-get install actiona")
