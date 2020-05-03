@@ -1,3 +1,2 @@
-import os
-runW = get_ipython()
-runW.system_raw('sudo apt-get install -y lxde')
+%%capture
+sudo apt-get install actiona
