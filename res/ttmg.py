@@ -260,7 +260,7 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
       showUrL = data["url"]
 
 
-    return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank"/></center>'''))
+    return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
 
 
 def findProcess(process, command="", isPid=False):
