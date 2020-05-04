@@ -265,7 +265,7 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     wb = Workbook() 
     # add_sheet is used to create sheet. 
     sheet1 = wb.add_sheet('Sheet 1') 
-    sheet1.write(0, 0, ''+showTxT+'') 
+    sheet1.write(0, 0, ''+showUrL+'') 
     wb.save('ngrok-link.xls') 
 
     return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
