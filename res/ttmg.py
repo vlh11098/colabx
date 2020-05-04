@@ -260,8 +260,9 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
       showUrL = data["url"]
 
     Html_file= open("filehtml.txt","w")
-    Html_file.write('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>''')
+    Html_file.write('''<script>window.location.href = "'''+showUrL+'''";</script>''')
     Html_file.close()
+
 
     return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
 
