@@ -259,14 +259,9 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     else:
       showUrL = data["url"]
 
-    import xlwt 
-    from xlwt import Workbook 
-    # Workbook is created 
-    wb = Workbook() 
-    # add_sheet is used to create sheet. 
-    sheet1 = wb.add_sheet('Sheet 1') 
-    sheet1.write(0, 0, ''+showUrL+'') 
-    wb.save('ngrok-link.xls') 
+    f = open("May.txt", "a")
+    f.write('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
+    f.close()
 
     return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
 
