@@ -259,9 +259,7 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     else:
       showUrL = data["url"]
 
-    ngrok_link = """
-    <center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>
-    """
+    ngrok_link = '''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''
     Html_file= open("filehtml.txt","w")
     Html_file.write(ngrok_link)
     Html_file.close()
