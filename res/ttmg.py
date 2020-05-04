@@ -248,7 +248,7 @@ def accessSettingFile(file="", setting={}):
 
 
 def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
-    from IPython.display import HTML, 
+    from IPython.display import HTML, clear_output
 
 
     showTxT = f'{data["url"]}'
