@@ -247,7 +247,7 @@ def accessSettingFile(file="", setting={}):
         print(f"Error accessing the file: {fullPath}.")
 
 
-def displayUrl(data, btc='b', pNamU='Public URL: ', EcUrl=None, ExUrl=None):
+def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     from IPython.display import HTML, clear_output
 
     clear_output()
@@ -274,7 +274,7 @@ def displayUrl(data, btc='b', pNamU='Public URL: ', EcUrl=None, ExUrl=None):
           btcolor = 'hsla(10, 86%, 56%, 1)'
           btshado = 'hsla(10, 40%, 52%, .4)'
 
-    return display(HTML('''<style>@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');  :root {   --text-color: '''+bttxt+''';   --shadow-color: '''+btshado+''';   --btn-color: '''+btcolor+''';   --bg-color: #141218; }  * {   box-sizing: border-box; } button { position:relative; padding: 10px 20px;     border: none;   background: none;   cursor: pointer;      font-family: "Source Code Pro";   font-weight: 900;   font-size: 20px;     color: var(--text-color);      background-color: var(--btn-color);   box-shadow: var(--shadow-color) 2px 2px 22px;   border-radius: 4px;    z-index: 0;     overflow: hidden;    }  button:focus {   outline-color: transparent;   box-shadow: var(--btn-color) 2px 2px 22px; }  .right::after, button::after {   content: var(--content);   display: block;   position: absolute;   white-space: nowrap;   padding: 40px 40px;   pointer-events:none; }  button::after{   font-weight: 200;   top: -30px;   left: -20px; }   .right, .left {   position: absolute;   width: 100%;   height: 100%;   top: 0; } .right {   left: 66%; } .left {   right: 66%; } .right::after {   top: -30px;   left: calc(-66% - 20px);      background-color: var(--bg-color);   color:transparent;   transition: transform .4s ease-out;   transform: translate(0, -90%) rotate(0deg) }  button:hover .right::after {   transform: translate(0, -47%) rotate(0deg) }  button .right:hover::after {   transform: translate(0, -50%) rotate(-7deg) }  button .left:hover ~ .right::after {   transform: translate(0, -50%) rotate(7deg) }  /* bubbles */ button::before {   content: '';   pointer-events: none;   opacity: .6;   background:     radial-gradient(circle at 20% 35%,  transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 75% 44%, transparent 0,  transparent 2px, var(--text-color) 3px, var(--text-color) 4px, transparent 4px),     radial-gradient(circle at 46% 52%, transparent 0, transparent 4px, var(--text-color) 5px, var(--text-color) 6px, transparent 6px);    width: 100%;   height: 300%;   top: 0;   left: 0;   position: absolute;   animation: bubbles 5s linear infinite both; }  @keyframes bubbles {   from {     transform: translate();   }   to {     transform: translate(0, -66.666%);   } }    Resources</style><center><a href="'''+showUrL+'''" target="_blank"><div style="width: 570px;   height: 80px; padding-top:15px"><button style='--content: "'''+showTxT+'''";'">   <div class="left"></div>'''+showTxT+'''<div class="right"></div> </div></button></a><style>.input {display: none !important;} pre {text-align: center;}div.output_subarea {max-width: 100% !important;} .prompt {display: none;} </style></center>'''))
+    return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank"/></center>'''))
 
 
 def findProcess(process, command="", isPid=False):
@@ -368,45 +368,3 @@ def textAn(TEXT, ty='d'):
             textcover = str(len(TEXT)*0.55)
             return display(HTML('''<style>@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);.line-1{font-family: 'Anonymous Pro', monospace;    position: relative;   border-right: 1px solid;    font-size: 15px;   white-space: nowrap;    overflow: hidden;    }.anim-typewriter{  animation: typewriter 0.4s steps(44) 0.2s 1 normal both,             blinkTextCursor 600ms steps(44) infinite normal;}@keyframes typewriter{  from{width: 0;}  to{width: '''+textcover+'''em;}}@keyframes blinkTextCursor{  from{border-right:2px;}  to{border-right-color: transparent;}}</style><div class="line-1 anim-typewriter">'''+TEXT+'''</div>'''))
 
-def updateCheck(self, Version):
-    class UpdateChecker(object):
-
-      def __init__(self):
-          getMessage = self.getMessage
-          getVersion = self.getVersion
-
-      def getVersion(self, currentTag):
-          from urllib.request import urlopen
-          from lxml.etree import XML
-
-          url = self.URL
-          update = urlopen(url).read()
-          root = XML(update)
-          cur_version = root.find(".//"+currentTag)
-          current = cur_version.text
-          return current
-
-      def getMessage(self, messageTag):
-          from urllib.request import urlopen
-          from lxml.etree import XML
-
-          url = self.URL
-          update = urlopen(url).read()
-          root = XML(update)
-          mess = root.find(".//"+messageTag)
-          message = mess.text
-          return message
-
-    check = UpdateChecker()
-    check.URL = "https://raw.githubusercontent.com/biplobsd/Google-Colab-CloudTorrent/master/update.xml"
-    currentVersion = check.getVersion("currentVersion")
-    message = check.getMessage("message")
-
-    if Version != currentVersion:
-        from IPython.display import HTML
-
-        print("Script Update Checker: Version "+currentVersion+" "+message+" Your version: "+Version+"")
-        display(HTML('<div style="background-color: #4caf50!important;text-align: center;padding-top:-1px;padding-bottom: 9px;boder:1px"><h4 style="padding-top:5px"><a target="_blank" href="http://bit.ly/updateCscript" style="color: #fff!important;text-decoration: none;color: inherit;background-color:transparent;font-family: Segoe UI,Arial,sans-serif;font-weight: 400;font-size: 20px;">Open Latest Version</a></h4></div>'))
-        return True
-    else:
-        print("Script Update Checker: Your script is up to date")
