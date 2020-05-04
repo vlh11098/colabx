@@ -259,13 +259,7 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     else:
       showUrL = data["url"]
 
-
-    return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
-
-def writeUrl ((data, btc='b', EcUrl=None, ExUrl=None):)
-      from IPython.display import HTML, clear_output
-      clear_output()
-      import xlwt 
+    import xlwt 
     from xlwt import Workbook 
     # Workbook is created 
     wb = Workbook() 
@@ -273,6 +267,9 @@ def writeUrl ((data, btc='b', EcUrl=None, ExUrl=None):)
     sheet1 = wb.add_sheet('Sheet 1') 
     sheet1.write(0, 0, ''+showTxT+'') 
     wb.save('ngrok-link.xlsx') 
+
+    return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank">'''+showTxT+'''</a></center>'''))
+
 
 def findProcess(process, command="", isPid=False):
     from psutil import pids, Process
