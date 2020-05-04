@@ -250,7 +250,7 @@ def accessSettingFile(file="", setting={}):
 def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
     from IPython.display import HTML, clear_output
 
-
+    clear_output()
     showTxT = f'{data["url"]}'
     if EcUrl:
       showUrL = data["url"]+EcUrl
@@ -258,6 +258,7 @@ def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
       showUrL = ExUrl
     else:
       showUrL = data["url"]
+
 
     return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank"/></center>'''))
 
