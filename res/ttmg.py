@@ -248,31 +248,16 @@ def accessSettingFile(file="", setting={}):
 
 
 def displayUrl(data, btc='b', EcUrl=None, ExUrl=None):
-    from IPython.display import HTML, clear_output
+    from IPython.display import HTML, 
 
-    clear_output()
-    showTxT = f'{pNamU}{data["url"]}'
+
+    showTxT = f'{data["url"]}'
     if EcUrl:
       showUrL = data["url"]+EcUrl
     elif ExUrl:
       showUrL = ExUrl
     else:
       showUrL = data["url"]
-    if btc == 'b':
-          # blue
-          bttxt = 'hsla(210, 50%, 85%, 1)'
-          btcolor = 'hsl(210, 80%, 42%)'
-          btshado = 'hsla(210, 40%, 52%, .4)'
-    elif btc == 'g':
-          # green
-          bttxt = 'hsla(110, 50%, 85%, 1)'
-          btcolor = 'hsla(110, 86%, 56%, 1)'
-          btshado = 'hsla(110, 40%, 52%, .4)'
-    elif btc == 'r':
-          # red
-          bttxt = 'hsla(10, 50%, 85%, 1)'
-          btcolor = 'hsla(10, 86%, 56%, 1)'
-          btshado = 'hsla(10, 40%, 52%, .4)'
 
     return display(HTML('''<center><a href="'''+showUrL+'''" target="_blank"/></center>'''))
 
